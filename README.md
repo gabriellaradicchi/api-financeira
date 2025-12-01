@@ -1,47 +1,112 @@
-# 💰 API Financeira
+💰 API Financeira - Controle de Fluxo de Caixa
 
-API REST completa desenvolvida em Node.js para controle de fluxo de caixa (entradas e saídas). O projeto foi desenvolvido como parte da avaliação da Pós-Graduação em Desenvolvimento Web Full Stack.
+Este projeto é uma API RESTful completa para gerenciamento financeiro (entradas e saídas), desenvolvida como parte da avaliação da Pós-Graduação em Desenvolvimento Web Full Stack.
 
-## 🚀 Tecnologias Utilizadas
+O sistema permite cadastrar transações, visualizar o histórico, editar lançamentos e excluir registros, com cálculo automático de saldo em tempo real. Além da API, o projeto conta com uma interface Front-end moderna para interação com o usuário.
 
-- **Node.js**: Ambiente de execução.
-- **Express**: Framework para criação da API.
-- **MongoDB (Atlas)**: Banco de dados NoSQL.
-- **Mongoose**: Modelagem de dados (ODM).
-- **Jest & Supertest**: Testes automatizados.
-- **Render**: Hospedagem da aplicação em nuvem.
+🌐 Links do Projeto
 
-## ⚙️ Funcionalidades
+- 🔗 API em Produção (Backend + Frontend): Acesse aqui a aplicação no Render
 
-- **POST /api/transacoes**: Cria uma nova transação (entrada ou saída).
-- **GET /api/transacoes**: Lista todas as transações cadastradas.
+- 📂 Repositório GitHub: https://github.com/gabriellaradicchi/api-financeira
 
-## 🌐 Link da API em Produção
+🚀 Tecnologias Utilizadas
 
-A API está rodando online no Render. Você pode testar a listagem de dados acessando:
+O projeto foi construído utilizando a stack MERN (adaptada) e práticas modernas de desenvolvimento:
 
-👉 **[https://api-financeira-76md.onrender.com/api/transacoes](https://api-financeira-76md.onrender.com/api/transacoes)**
+- Node.js: Ambiente de execução JavaScript no servidor.
 
----
+- Express: Framework web para criação das rotas e servidor.
 
-## 🛠️ Como rodar o projeto localmente
+- MongoDB Atlas: Banco de dados NoSQL em nuvem.
 
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/gabriellaradicchi/api-financeira.git](https://github.com/gabriellaradicchi/api-financeira.git)
+- Mongoose: ODM (Object Data Modeling) para manipulação dos dados.
 
-2.  Instale as dependências: (Bash)
+- Jest & Supertest: Testes automatizados de integração.
 
-    npm install
+- HTML5 / CSS3 / JavaScript (Vanilla): Frontend responsivo consumindo a API via fetch.
 
-3.  Configure as variáveis de ambiente: Crie um arquivo .env na raiz do projeto e adicione sua string de conexão do MongoDB:
+- Chart.js: Biblioteca para geração de gráficos dinâmicos.
 
-    DB_URL=mongodb+srv://SEU_USUARIO:SUA_SENHA@cluster... 
+- Render: Plataforma de hospedagem e deploy contínuo.
 
-4. Execute os testes automatizados: (Bash)
+⚙️ Documentação da API (Endpoints)
 
-    npm test
+A API base roda no prefixo /api. Abaixo estão as rotas disponíveis:
 
-5. Inicie o servidor: (Bash)
+![alt text](image.png)
 
-    pm start
+🛠️ Como executar o projeto localmente
+
+Siga este passo a passo para rodar a aplicação na sua máquina:
+
+1. Pré-requisitos
+
+- Node.js instalado (v14 ou superior).
+
+- Git instalado.
+
+- Uma conta no MongoDB Atlas (para obter a string de conexão).
+
+2. Clonar o repositório
+
+Abra o terminal e execute:
+
+git clone [https://github.com/gabriellaradicchi/api-financeira.git](https://github.com/gabriellaradicchi/api-financeira.git)
+cd api-financeira
+
+3. Clonar o repositório
+
+npm install
+
+4. Configurar as Variáveis de Ambiente
+
+Crie um arquivo chamado .env na raiz do projeto e adicione a string de conexão do seu banco de dados MongoDB:
+
+DB_URL=mongodb+srv://SEU_USUARIO:SUA_SENHA@cluster0.exemplo.mongodb.net/?retryWrites=true&w=majority
+PORT=3000
+
+5. Executar os Testes (Opcional)
+
+Para verificar se tudo está funcionando corretamente:
+
+npm test
+
+6. Iniciar o Servidor
+
+Para rodar a aplicação em modo de desenvolvimento (com hot-reload se tiver o nodemon) ou produção:
+
+npm start
+
+O servidor iniciará na porta 3000 (ou na porta definida no .env).
+Acesse no navegador: http://localhost:3000
+
+📂 Estrutura do Projeto
+
+A arquitetura segue o padrão MVC (Model-View-Controller) para organização e escalabilidade:
+
+api-financeira
+├── public
+│   └── index.html
+├── src
+│   ├── controllers
+│   │   └── transacaocontroller.js
+│   ├── db
+│   │   └── conn.js
+│   ├── models
+│   │   └── transacao.js
+│   ├── routes
+│   │   └── router.js
+│   └── app.js
+├── tests
+│   └── transacao.test.js
+├── .env
+├── .gitignore
+├── package.json
+├── README.md
+└── server.js
+
+👩‍💻 Autora
+
+Desenvolvido por Gabriella Radicchi.
+Projeto entregue para a disciplina Node.js da pós Desenvolvimento Web Full Stack.
