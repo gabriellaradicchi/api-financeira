@@ -6,9 +6,11 @@ O sistema permite cadastrar transações, visualizar o histórico, editar lança
 
 🌐 Links do Projeto
 
-- 🔗 API em Produção (Backend + Frontend): Acesse aqui a aplicação no Render
+- 🔗 API em Produção (Backend + Frontend): [Acesse aqui a aplicação no Render](https://api-financeira-76md.onrender.com/)
 
-- 📂 Repositório GitHub: https://github.com/gabriellaradicchi/api-financeira
+- ⚙️ API Test: https://api-financeira-76md.onrender.com/api/transacoes
+
+- 📂 Repositório GitHub: [ttps://github.com/gabriellaradicchi/api-financeira](https://github.com/gabriellaradicchi/api-financeira/tree/main)
 
 🚀 Tecnologias Utilizadas
 
@@ -36,6 +38,62 @@ A API base roda no prefixo /api. Abaixo estão as rotas disponíveis:
 
 ![alt text](image.png)
 
+🧪 Como Testar no Postman
+
+Para testar as rotas da API manualmente utilizando o Postman, siga os passos abaixo:
+
+1. Configurar a Requisição
+
+URL Base: https://api-financeira-76md.onrender.com/api/transacoes
+
+2. Exemplos de Uso
+
+➤ Criar Transação (POST)
+
+Método: POST
+
+URL: https://api-financeira-76md.onrender.com/api/transacoes
+
+Body: Selecione a opção raw e o formato JSON.
+
+{
+  "titulo": "Freelance",
+  "valor": 1500.50,
+  "tipo": "entrada",
+  "data": "2023-12-10"
+}
+
+➤ Listar Transações (GET)
+
+Método: GET
+
+URL: https://api-financeira-76md.onrender.com/api/transacoes
+
+Resposta Esperada: Uma lista JSON com todas as transações cadastradas.
+
+➤ Editar Transação (PUT)
+
+Método: PUT
+
+URL: https://api-financeira-76md.onrender.com/api/transacoes/ID_DA_TRANSACAO
+
+Nota: Substitua ID_DA_TRANSACAO pelo código _id retornado na listagem (GET).
+
+Body:
+
+{
+  "titulo": "Freelance (Corrigido)",
+  "valor": 1600.00
+}
+
+➤ Excluir Transação (DELETE)
+
+Método: DELETE
+
+URL: https://api-financeira-76md.onrender.com/api/transacoes/ID_DA_TRANSACAO
+
+Nota: Substitua ID_DA_TRANSACAO pelo código _id que deseja remover.
+
 🛠️ Como executar o projeto localmente
 
 Siga este passo a passo para rodar a aplicação na sua máquina:
@@ -52,7 +110,7 @@ Siga este passo a passo para rodar a aplicação na sua máquina:
 
 Abra o terminal e execute:
 
-git clone [https://github.com/gabriellaradicchi/api-financeira.git](https://github.com/gabriellaradicchi/api-financeira.git)
+git clone https://github.com/gabriellaradicchi/api-financeira.git
 cd api-financeira
 
 3. Clonar o repositório
