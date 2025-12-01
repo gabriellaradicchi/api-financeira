@@ -5,7 +5,7 @@ const app = require('../src/app');
 
 describe('Testes da API Financeira', () => {
 
-    // Teste 1: Tenta CRIAR uma transação
+
     it('Deve criar uma nova transação de entrada', async () => {
         const res = await request(app).post('/api/transacoes').send({
             titulo: "Salário Mensal",
@@ -13,11 +13,11 @@ describe('Testes da API Financeira', () => {
             tipo: "entrada"
         });
 
-        // --- PARTE NOVA PARA DESCOBRIR O ERRO ---
+      
         if (res.statusCode !== 201) {
             console.log("❌ ERRO DETALHADO DA API:", res.body);
         }
-        // ----------------------------------------
+      
 
         expect(res.statusCode).toEqual(201);
         expect(res.body.response.titulo).toEqual("Salário Mensal");

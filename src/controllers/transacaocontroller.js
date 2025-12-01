@@ -27,7 +27,7 @@ const TransacaoController = {
 
     delete: async (req, res) => {
         try {
-            const id = req.params.id; // Pega o ID da URL
+            const id = req.params.id; 
             const transacao = await Transacao.findByIdAndDelete(id);
 
             if (!transacao) {
