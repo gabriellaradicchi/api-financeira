@@ -85,26 +85,7 @@ Acesse no navegador: http://localhost:3000
 
 A arquitetura segue o padrão MVC (Model-View-Controller) para organização e escalabilidade:
 
-api-financeira
-├── public
-│   └── index.html
-├── src
-│   ├── controllers
-│   │   └── transacaocontroller.js
-│   ├── db
-│   │   └── conn.js
-│   ├── models
-│   │   └── transacao.js
-│   ├── routes
-│   │   └── router.js
-│   └── app.js
-├── tests
-│   └── transacao.test.js
-├── .env
-├── .gitignore
-├── package.json
-├── README.md
-└── server.js
+![alt text](image-1.png) 
 
 👩‍💻 Autora
 
