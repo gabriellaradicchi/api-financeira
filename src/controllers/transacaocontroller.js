@@ -2,36 +2,60 @@ const Transacao = require('../models/transacao');
 
 const TransacaoController = {
     
-    // Funcionalidade 1: Criar nova transação (POST)
+
     create: async (req, res) => {
         try {
-            const transacao = {
-                titulo: req.body.titulo,
-                tipo: req.body.tipo,
-                valor: req.body.valor,
-            };
-
-            // Cria no Banco de Dados
-            const response = await Transacao.create(transacao);
-            
-            res.status(201).json({ response, msg: "Transação criada com sucesso!" });
+            const response = await Transacao.create(req.body);
+            res.status(201).json({ response, msg: "Transação criada!" });
         } catch (error) {
             console.log(error);
-            // Aqui está o log de erro detalhado que adicionamos
-            res.status(500).json({ msg: "Erro ao criar transação.", erro: error.message });
+            res.status(500).json({ msg: "Erro ao criar." });
         }
     },
 
-    // Funcionalidade 2: Listar todas (GET)
+
     getAll: async (req, res) => {
         try {
-            // Busca tudo no banco
             const transacoes = await Transacao.find();
-            
             res.json(transacoes);
         } catch (error) {
             console.log(error);
-            res.status(500).json({ msg: "Erro ao buscar transações." });
+            res.status(500).json({ msg: "Erro ao buscar." });
+        }
+    },
+
+
+    delete: async (req, res) => {
+        try {
+            const id = req.params.id; // Pega o ID da URL
+            const transacao = await Transacao.findByIdAndDelete(id);
+
+            if (!transacao) {
+                return res.status(404).json({ msg: "Transação não encontrada." });
+            }
+
+            res.status(200).json({ msg: "Transação excluída com sucesso!" });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ msg: "Erro ao excluir." });
+        }
+    },
+
+   
+    update: async (req, res) => {
+        try {
+            const id = req.params.id;
+            
+            const transacao = await Transacao.findByIdAndUpdate(id, req.body, { new: true });
+
+            if (!transacao) {
+                return res.status(404).json({ msg: "Transação não encontrada." });
+            }
+
+            res.status(200).json({ transacao, msg: "Transação atualizada!" });
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({ msg: "Erro ao atualizar." });
         }
     }
 };
